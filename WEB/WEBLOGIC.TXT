@@ -1,0 +1,18 @@
+MISSION CONTROL:
+    In questa challenge io sono operator e per accedere alla flag devo essere commander. prendo l'api get /api/briefings/startfall e 
+    interecetto in burpsuite la richiesta e modifico l'header X-Clearance-Level a commander e prendo la flag
+
+AI DENTE:
+    Mi registro, vado su profile e modifico il profilo aggiungendo nella post role: head_chef
+    Successivamente vado su secret recipe e prendo la flag
+
+TICKETVAULT:
+    Mi registro, vedo che cliccando un ticket mi va su /api/tickets/x provo con x=1  e prendo flag
+
+LABRESULT:
+    Mi registro, guardo un mio risultato, vedo che ho /api/results/x, metto x=1 e prendo la flag
+
+SWAGSHOP:
+    in questa vedo che quando faccio check out viene utilizzato url /post/add. vedo nel body la 
+    variabile quantity e la metto a -1 per poter incrementare il valore del mio wallet al checkout.
+    dopo aver incrementato il valore vado a comprare il pass e prendo la flag
