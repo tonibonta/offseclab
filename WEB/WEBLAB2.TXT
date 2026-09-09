@@ -1,0 +1,6 @@
+COOKIE MONSTERS ARMY:
+    Mi arruolo e poi mando al repeater la get su home.php. successivamente cambio il cookie dal mio nome utente ad admin
+
+A TOO SMALL REMINDER:
+    in questa uso burp per testare le api. vedo che c'è il session_id=x. scrivo uno script python che prova tutti 
+    i numeri e si ferma quando trova la flag

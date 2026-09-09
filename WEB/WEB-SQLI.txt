@@ -1,0 +1,12 @@
+AIRLOSTFOUND:
+    in questa vedo che la barra di ricerca è vulnerabile. inizio il processo in cui vedo le tabelle, e con 
+    '))union select locker_code,2,3,4,5,6,7,8 from restricted_items -- prendo la flag
+DEPARTMENTWIKI:
+    in questa utilizzo una blind sql injection error based. Provo a fare un injection nella pagina
+    search prima con una union injection ma vedo che non mi stampa niente. l unica cosa che mi stampa 
+    è se c'è l errore. crafto un payload in modo da andare a confrontare lettera per lettera della flag
+    e in caso la lettere fosse giusta alza un eccezione altrimenti la query è corretta e non succede 
+    niente. la query consiste nell'usare  la select case condizione then else end.
+    i nomi delle tabelle e delle colonne li ho presi dal file app.js
+    ' AND (SELECT CASE WHEN SUBSTR((SELECT value FROM internal_config WHERE key='admin_token'),1,1)='o'
+    THEN ABS(-9223372036854775808) ELSE 1 END) -- posso anche usare load_extension(1)
