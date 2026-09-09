@@ -10,3 +10,16 @@ DEPARTMENTWIKI:
     i nomi delle tabelle e delle colonne li ho presi dal file app.js
     ' AND (SELECT CASE WHEN SUBSTR((SELECT value FROM internal_config WHERE key='admin_token'),1,1)='o'
     THEN ABS(-9223372036854775808) ELSE 1 END) -- posso anche usare load_extension(1)
+
+BOOKBREW:
+    in questa vedo che non ho dei params o una search. vedo però che il mio username viene messo nelle my reviews.
+    Quindi durante la registrazione come username metto una sqlinj del tipo ' union select 1,2,3,4,5,6,7,8,9 --,scopro tabella
+    e prendo flag
+
+STAGEPASS:
+    in questa vedo che nella pagina di checkreservation c'è un search vulnerabile ad sql injection.
+    vedo però che filtra alcune parole come select form e where e spazi bianchi.
+    uso le parole con la lettere maiuscola e va lo bypasso e al posto degli sapzi uso i commenti /**/
+    cosi facendo monto le injection union based, prima scopro numero colonne (12)
+    poi passo da sqlite_master e prendo tabella vip_guestlist
+    e poi vedo colonne, infine prendo flag

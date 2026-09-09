@@ -1,0 +1,30 @@
+GITPEEK:
+
+    Vedo che mi obbliga a fare un git log. forzo l errore con --format. so che la
+    variabile d'ambiente è flag quindi metto --format=$FLAG
+
+QRDROP:
+     in questa dal codice vedo che posso fare una command injection sull api generate e generare un file che poi vado
+     chiamare con l api/qr/name.png. uso questo hi'; cat /flag.txt > /tmp/qrcodes/aaa.png # e poi scarico il file e 
+     con cat file  prendo flag
+
+    
+SPREADSHEETZERO:
+    scrivo la formula =FLAG e prendo flag
+
+
+AUTOGRADER:
+    In questa challenge posso andare a eseguire una funzione python. la flag è nel file /flag.txt.
+    cerco altri modi per poter leggere un file e trovo che posso provare ad utilizzare la classe FileLoader.
+    Questa classe viene usata per caricare i moduli .py senza passare open().
+    Elenco tutte le classi caricate in memoria e vedo fileloader,  successivamente creo il loader
+    istanziando la classe e gli passo come mudulo il file flag e anche come percorso e 
+    infine vado a prendere i dati del file 
+
+VIRUSVAULT:
+    in questa prima vedo se mi esegue il codice dentro al file che mando ma vedo che non fa niente.
+    vedo che nella post ho la variabile filename. con ;sleep 3 vedo se è vulnerabile alla command inj
+    e lo è. di conseguenza provo con una blind command inj. vedo che se forzo l uscita a 1 mi da
+    una minaccia mentre se forzo 0 no. uso questo per brute forcare la variabile FLAG. 
+    metto un if [ "$(echo $FLAG | cut -c 1)" = "o" ] then exit 1;else exit 0; fi; in questo modo 
+    verifico tutte le lettere e scopro la flag
