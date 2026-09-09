@@ -1,0 +1,22 @@
+MAIL:
+    Mi loggo per vedere che tipo di autenticazione utilizza. vedo che utilizza il bearer. 
+    creo qualche utente per vedere se esiste uno schema nella generazione del token, vedo
+    che gli utenti crescono dal 002 in su e vedo che la parte precedente è il timestamp.
+    scrivo script per  creare un token con un timestamp che va da 10 min prima a 10 dopo rispetto
+    al timestamp dell utente creato e che finisce con 001. Troavto il token vado a vedere i 
+    messaggi e vedo un messaggio di sicurezza con id a 1. loggato con un altro utente intercetto
+    una richiesta al messaggio con id 1 e cambio  il token e prendo flag
+
+NEONARCADE:
+    in questa challenge mi loggo come utente player facendo sign up, successivamente vedo che 
+    non posso accedere ad operator, allora intercetto la richiesta di modifica e aggiungo
+    role=admin, così facendo cambio il cookie ed essendo admin accedo alla pagina operator 
+    e prendo flag
+
+KEYVAULT:
+    in questa uso jku injection. creo tramite l estesione jwt di burp una nuova chiave per firmare
+    il jwt. Tramite webhook.site vado a creare un link che mi aggiunge la chiave nello stesso 
+    formato che c'è nel file .well-known della macchina. mi registro come user normale e poi con burp
+    intercetto la richiesta al pannello admin. modifico nel token tramite l estesione di burp il 
+    jku e inserisco il link con la mia chiave, cambio role ad admin e infine firmo con la mia firma.
+    mando inoltro la richiesta modificata e sono dentro.
